@@ -1,24 +1,31 @@
-# README
+#Model
+task
+user
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#controller
+tasks
+users
 
-Things you may want to cover:
+#schema 
+create_table "tasks", force: :cascade do |t|
+  t.text "task_name"
+  t.string "task_status"
+  t.string "label"
+  t.datetime "cut_off_date"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+  t.bigint "user_id"
+  t.index ["user_id"], name: "index_tasks_on_user_id"
+end
 
-* Ruby version
+create_table "users", force: :cascade do |t|
+  t.string "name"
+  t.string "email"
+  t.string "password_digest"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+  t.index ["email"], name: "index_users_on_email", unique: true
+end
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+add_foreign_key "pictures", "users"
+end
