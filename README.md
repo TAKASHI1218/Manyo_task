@@ -19,8 +19,8 @@
 
 |data-type|column|
 |:--|:--|
-|t.text|task_name|
-|t.string   | task_status
+|t.text| name|
+|t.string   | status
 |t.string   | label
 |t.datetime | cut_off_date
 |t.datetime | created_at, null: false
