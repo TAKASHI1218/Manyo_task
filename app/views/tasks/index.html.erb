@@ -1,0 +1,42 @@
+<header>
+<h1>スケジュール一覧<h1>
+  <% if flash[:notice] %>
+    <h2><%= flash[:notice] %></h2>
+  <% end %>
+</header>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>タスク</th>
+      <th>ステータス</th>
+      <th>ラベル</th>
+      <th>優先順位</th>
+      <th>期限</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.name %></td>
+    <td><%= task.status %></td>
+    <td><%= task.label %></td>
+    <td><%= task.priority %></td>
+    <td><%= task.cut_off_date %></td>
+
+
+    <td>
+    <%= link_to '内容確認', task_path(task.id) %>
+    <%= link_to '編集', edit_task_path(task.id) %>
+    <%= link_to '削除', task_path(task.id), method: :delete %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<br>
+<footer>
+  <%= link_to '新規', new_task_path %>
+</footer>

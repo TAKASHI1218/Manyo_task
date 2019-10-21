@@ -19,9 +19,10 @@
 
 |data-type|column|
 |:--|:--|
-|t.text| name|
+|t.text     | name
 |t.string   | status
 |t.string   | label
+|t.string   | priority
 |t.datetime | cut_off_date
 |t.datetime | created_at, null: false
 |t.datetime | updated_at, null: false

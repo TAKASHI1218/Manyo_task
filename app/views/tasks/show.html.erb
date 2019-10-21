@@ -1,0 +1,14 @@
+<h1> 詳細画面　</h1>
+
+<strong>タスク:</strong>
+<p><%= @task.name %></p>
+<strong>ステータス:</strong>
+<p><%= @task.status %></p>
+<strong>ラベル:</strong>
+<p><%= @task.label %></p>
+<strong>優先順位:</strong>
+<p><%= @task.priority %></p>
+<strong>期限日:</strong>
+<p><%= @task.cut_off_date %></p>
+
+<%= link_to '一覧に戻る', tasks_path %>

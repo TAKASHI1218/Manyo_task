@@ -1,0 +1,22 @@
+<%= form_with(model: @task, local:true) do |form| %>
+
+<%= form.label :name %>
+<%= form.text_field :name %>
+
+<%= form.label :status %>
+<%= form.text_field :status %>
+
+<%= form.label :label %>
+<%= form.text_field :label %>
+
+<%= form.label :priority %>
+<%= form.text_field :priority %>
+
+<%= form.label :cut_off_date %>
+<%= form.text_field :cut_off_date %>
+
+
+<%= form.submit %>
+<% end %>
+
+<%= link_to '戻る', tasks_path %>
