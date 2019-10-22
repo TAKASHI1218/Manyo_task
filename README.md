@@ -20,6 +20,7 @@
 |data-type|column|
 |:--|:--|
 |t.text     | name
+|t.text     | content 
 |t.string   | status
 |t.string   | label
 |t.string   | priority

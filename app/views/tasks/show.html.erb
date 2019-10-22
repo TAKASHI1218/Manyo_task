@@ -2,6 +2,8 @@
 
 <strong>タスク:</strong>
 <p><%= @task.name %></p>
+<strong>タスク詳細:</strong>
+<p><%= @task.content %></p>
 <strong>ステータス:</strong>
 <p><%= @task.status %></p>
 <strong>ラベル:</strong>
@@ -10,5 +12,6 @@
 <p><%= @task.priority %></p>
 <strong>期限日:</strong>
 <p><%= @task.cut_off_date %></p>
+
 
 <%= link_to '一覧に戻る', tasks_path %>
