@@ -1,7 +1,10 @@
 <%= form_with(model: @task, local:true) do |form| %>
 
-<%= form.label :name %>
+<%= form.label :タスク名 %>
 <%= form.text_field :name %>
+
+<%= form.label :タスク詳細 %>
+<%= form.text_field :content %>
 
 <%= form.label :status %>
 <%= form.text_field :status %>
@@ -16,7 +19,7 @@
 <%= form.text_field :cut_off_date %>
 
 
-<%= form.submit %>
+<%= form.submit value:'登録する'%>
 <% end %>
 
 <%= link_to '戻る', tasks_path %>
