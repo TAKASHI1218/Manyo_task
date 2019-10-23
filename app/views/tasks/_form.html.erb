@@ -1,4 +1,13 @@
 <%= form_with(model: @task, local:true) do |form| %>
+<% if @task.errors.any? %>
+<h2>以下のエラーにより登録できません。</h2>
+
+<ul>
+  <% @task.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
 
 <%= form.label :タスク名 %>
 <%= form.text_field :name %>

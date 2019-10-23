@@ -45,7 +45,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'launchy'
+
 end
 
 group :development do
@@ -67,6 +67,7 @@ group :test do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'webdrivers'
+  gem 'launchy'
 
 end
 
