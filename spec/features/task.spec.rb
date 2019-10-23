@@ -13,6 +13,8 @@ RSpec.feature "タスク管理機能", type: :feature do
 
     visit tasks_path
 
+    # save_and_open_page
+
     expect(page).to have_content 'testtesttest'
     expect(page).to have_content 'samplesample'
 
