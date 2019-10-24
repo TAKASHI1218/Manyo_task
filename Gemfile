@@ -5,6 +5,7 @@ ruby '2.6.3'
 
 gem 'bcrypt', '3.1.11'
 
+gem 'rails-i18n'
 #
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
