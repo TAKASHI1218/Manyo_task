@@ -4,7 +4,7 @@ ja:
       task: タスク
       user: ユーザー
     attributes:
-      blog:
+      task:
         name: タスク
         content: タスク詳細
         status: ステータス

@@ -1,6 +1,6 @@
 <%= form_with(model: @task, local:true) do |form| %>
 <% if @task.errors.any? %>
-<h2>以下のエラーにより登録できません。</h2>
+<%= t('view.cannot_show_due_to_below') %>
 
 <ul>
   <% @task.errors.full_messages.each do |message| %>
@@ -9,26 +9,26 @@
 </ul>
 <% end %>
 
-<%= form.label :タスク名 %>
+<%= t('view.task') %>
 <%= form.text_field :name %>
 
-<%= form.label :タスク詳細 %>
+<%= t('view.content') %>
 <%= form.text_field :content %>
 
-<%= form.label :status %>
+<%= t('view.status') %>
 <%= form.text_field :status %>
 
-<%= form.label :label %>
+<%= t('view.label') %>
 <%= form.text_field :label %>
 
-<%= form.label :priority %>
+<%= t('view.priority') %>
 <%= form.text_field :priority %>
 
-<%= form.label :cut_off_date %>
+<%= t('view.cut_off_date') %>
 <%= form.date_select :cut_off_date %>
 
 
-<%= form.submit value:'登録する'%>
+<%= form.submit t('view.register')%>
 <% end %>
 
-<%= link_to '戻る', tasks_path %>
+  <%= link_to t('view.back'), tasks_path %>
