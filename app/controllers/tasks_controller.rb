@@ -3,8 +3,9 @@ class TasksController < ApplicationController
 
 
   def index
-    @tasks = Task.all
-  end
+        @tasks = Task.order("created_at DESC")
+      end
+   end
 
   def new
       @task =Task.new

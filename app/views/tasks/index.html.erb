@@ -23,7 +23,7 @@
   <% @tasks.each do |task| %>
   <tr>
     <td><%= task.name %></td>
-    <td><%= task.content %></td>    
+    <td><%= task.content %></td>
     <td><%= task.status %></td>
     <td><%= task.label %></td>
     <td><%= task.priority %></td>
@@ -41,4 +41,5 @@
 <br>
 <footer>
   <%= link_to '新規', new_task_path %>
+  <%= link_to '終了期限でソートする', tasks_path(sort_cut_off_date: "true") %>
 </footer>
