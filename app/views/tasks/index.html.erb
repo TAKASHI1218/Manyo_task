@@ -1,5 +1,5 @@
 <header>
-<h1>スケジュール一覧<h1>
+<h1><%= t('view.schedule_index') %><h1>
   <% if flash[:notice] %>
     <h2><%= flash[:notice] %></h2>
   <% end %>
@@ -10,12 +10,12 @@
 <table>
   <thead>
     <tr>
-      <th>タスク</th>
-      <th>タスク詳細</th>
-      <th>ステータス</th>
-      <th>ラベル</th>
-      <th>優先順位</th>
-      <th>期限</th>
+      <th><%= t('view.task') %></th>
+      <th><%= t('view.content') %></th>
+      <th><%= t('view.status') %></th>
+      <th><%= t('view.label') %></th>
+      <th><%= t('view.priority') %></th>
+      <th><%= t('view.cut_off_date') %></th>
     </tr>
   </thead>
 
@@ -23,7 +23,7 @@
   <% @tasks.each do |task| %>
   <tr>
     <td><%= task.name %></td>
-    <td><%= task.content %></td>    
+    <td><%= task.content %></td>
     <td><%= task.status %></td>
     <td><%= task.label %></td>
     <td><%= task.priority %></td>
@@ -31,14 +31,15 @@
 
 
     <td>
-    <%= link_to '内容確認', task_path(task.id) %>
-    <%= link_to '編集', edit_task_path(task.id) %>
-    <%= link_to '削除', task_path(task.id), method: :delete %>
+    <%= link_to t('view.show_detail'), task_path(task.id) %>
+    <%= link_to t('view.edit'), edit_task_path(task.id) %>
+    <%= link_to t('view.delete'), task_path(task.id), method: :delete %>
     </td>
   </tr>
   <% end %>
 </table>
 <br>
 <footer>
-  <%= link_to '新規', new_task_path %>
+  <%= link_to t('view.create_new'), new_task_path %>
+  <%= link_to t('view.sort_by_cut_off_date'), tasks_path(sort_cut_off_date: "true") %>
 </footer>

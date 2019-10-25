@@ -1,17 +1,18 @@
-<h1> 詳細画面　</h1>
+<h1><%= t('view.content') %></h1>
+<br>
 
-<strong>タスク:</strong>
+<strong><%= t('view.task') %></strong>
 <p><%= @task.name %></p>
-<strong>タスク詳細:</strong>
+<strong><%= t('view.content') %></strong>
 <p><%= @task.content %></p>
-<strong>ステータス:</strong>
+<strong><%= t('view.status') %></strong>
 <p><%= @task.status %></p>
-<strong>ラベル:</strong>
+<strong><%= t('view.label') %></strong>
 <p><%= @task.label %></p>
-<strong>優先順位:</strong>
+<strong><%= t('view.priority') %></strong>
 <p><%= @task.priority %></p>
-<strong>期限日:</strong>
+<strong><%= t('view.cut_off_date') %></strong>
 <p><%= @task.cut_off_date %></p>
 
 
-<%= link_to '一覧に戻る', tasks_path %>
+<%= link_to t('view.back'), tasks_path %>

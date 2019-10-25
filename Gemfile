@@ -5,6 +5,10 @@ ruby '2.6.3'
 
 gem 'bcrypt', '3.1.11'
 
+gem 'rails-i18n'
+
+gem 'pry-rails'
+
 #
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -45,7 +49,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'launchy'
+
 end
 
 group :development do
@@ -67,6 +71,7 @@ group :test do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'webdrivers'
+  gem 'launchy'
 
 end
 

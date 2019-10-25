@@ -1,25 +1,34 @@
 <%= form_with(model: @task, local:true) do |form| %>
+<% if @task.errors.any? %>
+<%= t('view.cannot_show_due_to_below') %>
 
-<%= form.label :タスク名 %>
-<%= form.text_field :name %>
-
-<%= form.label :タスク詳細 %>
-<%= form.text_field :content %>
-
-<%= form.label :status %>
-<%= form.text_field :status %>
-
-<%= form.label :label %>
-<%= form.text_field :label %>
-
-<%= form.label :priority %>
-<%= form.text_field :priority %>
-
-<%= form.label :cut_off_date %>
-<%= form.text_field :cut_off_date %>
-
-
-<%= form.submit value:'登録する'%>
+<ul>
+  <% @task.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
 <% end %>
 
-<%= link_to '戻る', tasks_path %>
+<%= t('view.task') %>
+<%= form.text_field :name %>
+
+<%= t('view.content') %>
+<%= form.text_field :content %>
+
+<%= t('view.status') %>
+<%= form.text_field :status %>
+
+<%= t('view.label') %>
+<%= form.text_field :label %>
+
+<%= t('view.priority') %>
+<%= form.text_field :priority %>
+
+<%= t('view.cut_off_date') %>
+<%= form.date_select :cut_off_date %>
+
+
+<%= form.submit t('view.register')%>
+<% end %>
+
+  <%= link_to t('view.back'), tasks_path %>

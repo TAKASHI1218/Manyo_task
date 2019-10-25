@@ -3,8 +3,15 @@ class TasksController < ApplicationController
 
 
   def index
-    @tasks = Task.all
-  end
+    # @tasks =Task.all
+    if params[:sort_cut_off_date] == nil
+      @tasks=Task.all
+
+    elsif params[:sort_cut_off_date] == true
+      @tasks=Task.all.order(cut_off_date DESC)
+
+     end
+   end
 
   def new
       @task =Task.new
