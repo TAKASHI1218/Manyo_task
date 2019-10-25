@@ -5,10 +5,13 @@ class TasksController < ApplicationController
   def index
     # @tasks =Task.all
     if params[:sort_cut_off_date] == nil
-      @tasks=Task.all
+      @tasks=Task.all.order("created_at DESC")
 
-    elsif params[:sort_cut_off_date] == true
-      @tasks=Task.all.order(cut_off_date DESC)
+
+    elsif params[:sort_cut_off_date]
+      # binding.pry
+      @tasks=Task.all.order("cut_off_date ASC")
+
 
      end
    end
