@@ -32,7 +32,7 @@ RSpec.feature "タスク管理機能", type: :feature do
     visit tasks_path(@task)
     expect(page).to have_content 'mmm','nnn'
   end
-  #       visit tasks_path[30]
+
   scenario "タスクが作成日時の降順に並んでいるかのテスト" do
     Task.create!(name: 'test_task_01', content: 'testtesttest', status: '未着手', cut_off_date: '2020-03-26', priority: '高')
     Task.create!(name: 'test_task_03', content: 'samplesample', status: '未着手', cut_off_date: '2020-03-26', priority: '高')
@@ -41,7 +41,7 @@ RSpec.feature "タスク管理機能", type: :feature do
     task_0 = tasks[0]
     expect(task_0).to have_content 'test_task_01'
   end
-   #################################################################################################################
+
   scenario "終了期限のテスト" do
     Task.create(name: '333', content: 'nnn', status: '未着手', cut_off_date: '2020-03-26', priority: '高')
     Task.create(name: '111', content: 'nnn', status: '未着手', cut_off_date: '2000-03-26', priority: '高')
