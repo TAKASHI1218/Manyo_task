@@ -4,12 +4,27 @@
     <title>Sample14Manyo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+       <ul>
+         <h2>万葉課題</h2>
+       </ul>
+     </header>
+
+     <br> 
+
+
     <%= yield %>
+
+    <footer>
+    <p>運営会社　スケジュール株式会社</p>
+    <p>© 2015-2016 Copyright Schedule Corp.</p>
+  </footer>
   </body>
 </html>

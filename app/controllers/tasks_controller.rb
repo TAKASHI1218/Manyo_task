@@ -2,19 +2,32 @@ class TasksController < ApplicationController
   before_action :set_task, only:[:show, :edit, :update, :destroy]
 
 
+
+  PER = 8
   def index
-    # @tasks =Task.all
-    if params[:sort_cut_off_date] == nil
-      @tasks=Task.all.order("created_at DESC")
+    @tasks = Task.all.order("created_at DESC").page(params[:page]).per(PER)
 
+    if params[:sort_by_cut_off_date]
+      @tasks=Task.all.order("cut_off_date ASC").page(params[:page]).per(PER)
+    else
+    end
 
-    elsif params[:sort_cut_off_date]
-      # binding.pry
-      @tasks=Task.all.order("cut_off_date ASC")
+    if params[:sort_prioriy]
+      @tasks=Task.all.order("priority ASC").page(params[:page]).per(PER)
+    else
+    end
 
+    if params[:name].present?
+      @tasks= @tasks.get_by_name params[:name]
+    else
+    end
 
-     end
+    if params[:status].present?
+      @tasks=@tasks.get_by_status params[:status]
+    else
+    end
    end
+
 
   def new
       @task =Task.new

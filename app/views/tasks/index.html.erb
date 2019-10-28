@@ -1,27 +1,44 @@
-<header>
-<h1><%= t('view.schedule_index') %><h1>
+
+
+<h3 class="label label-info"><%= t('view.schedule_index') %><h3>
   <% if flash[:notice] %>
-    <h2><%= flash[:notice] %></h2>
+    <h5><%= flash[:notice] %></h5>
   <% end %>
-</header>
+<h5>
+
+ <%= form_tag(tasks_path, method: "get") do %>
+<id = task_search>
+ <%= label_tag :name, t('view.task') %><%= text_field_tag :name, params[:name] %>
+</id>
+ <%= label_tag :status, t('view.status') %>
+ <select_box><%= select_tag :status, options_for_select(Task.statuses),
+ include_blank: true %></select_box>
+
+
+ <%= submit_tag t('view.search') %>
+ <% end %>
+</h5>
+
+<br>
 
 
 
-<table>
+<table border="3" cellpadding="25" class = task_list>
   <thead>
-    <tr>
+    <tr bgcolor="#ccccc">
       <th><%= t('view.task') %></th>
       <th><%= t('view.content') %></th>
       <th><%= t('view.status') %></th>
       <th><%= t('view.label') %></th>
       <th><%= t('view.priority') %></th>
       <th><%= t('view.cut_off_date') %></th>
+      <th>Function</th>
     </tr>
   </thead>
 
-  <tbody>
+
   <% @tasks.each do |task| %>
-  <tr>
+  <tr class = task_list>
     <td><%= task.name %></td>
     <td><%= task.content %></td>
     <td><%= task.status %></td>
@@ -38,8 +55,22 @@
   </tr>
   <% end %>
 </table>
+
 <br>
-<footer>
+
+  <button type="button" div class ="create_new label-info">
   <%= link_to t('view.create_new'), new_task_path %>
-  <%= link_to t('view.sort_by_cut_off_date'), tasks_path(sort_cut_off_date: "true") %>
-</footer>
+  </button>
+
+<br>
+
+    <button type="button" div class ="sort_by_cut_off_date label-success">
+  <%= link_to t('view.sort_by_cut_off_date'), tasks_path(sort_by_cut_off_date: "true") %>
+  </button>
+
+  <button type="button" class ="sort_prioriy label-warning">
+  <%= link_to t('view.sort_by_priority'), tasks_path(sort_prioriy: "true") %>
+  </button>
+
+
+  <%= paginate @tasks %>

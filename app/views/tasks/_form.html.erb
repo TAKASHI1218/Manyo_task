@@ -16,19 +16,19 @@
 <%= form.text_field :content %>
 
 <%= t('view.status') %>
-<%= form.text_field :status %>
+<%= form.select :status, Task.statuses.keys.to_a, {} %>
 
 <%= t('view.label') %>
 <%= form.text_field :label %>
 
 <%= t('view.priority') %>
-<%= form.text_field :priority %>
+<%= form.select :priority, Task.priorities.keys.to_a, {} %>
 
 <%= t('view.cut_off_date') %>
 <%= form.date_select :cut_off_date %>
 
-
-<%= form.submit t('view.register')%>
+<button id=create_new>
+<%= form.submit t('view.register')%></button>
 <% end %>
 
   <%= link_to t('view.back'), tasks_path %>
