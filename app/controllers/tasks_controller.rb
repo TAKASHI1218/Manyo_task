@@ -1,10 +1,12 @@
 class TasksController < ApplicationController
   before_action :set_task, only:[:show, :edit, :update, :destroy]
+  before_action :refuse_go_to_task, only:[:index, :show, :edit]
 
 
 
   PER = 8
   def index
+
     @tasks = Task.all.order("created_at DESC").page(params[:page]).per(PER)
 
     if params[:sort_by_cut_off_date]
@@ -39,6 +41,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.user_id = current_user.id
     if params[:back]
       render :new
      else
@@ -76,5 +79,12 @@ class TasksController < ApplicationController
 
   def set_task
     @task = Task.find(params[:id])
+  end
+
+  def refuse_go_to_task
+    if current_user == nil
+      redirect_to new_user_path
+    else
+    end
   end
 end
