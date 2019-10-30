@@ -225,3 +225,12 @@ ja:
     back: 戻る
     cannot_show_due_to_below: 以下のエラーにより登録できません。
     search: 検索
+    user_id: ユーザーid
+    user_name: ユーザー名
+    user_email: ユーザーメール
+    number_of_task: タスク数
+    function: ファンクション
+    index_for_admin: 管理画面のユーザー一覧画面
+    index_for_user: ユーザー一覧
+    edit_user: ユーザー編集
+    create_account: アカウント作成

@@ -1,4 +1,4 @@
-<h1>Edit page</h1>
+<h1><%= t('view.edit_user') %></h1>
 
 <% if @user.errors.any? %>
   <div id="error_explanation">
@@ -28,5 +28,5 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
 
-  <%= f.submit "Create my account" %>
+  <%= f.submit t('view.edit_user') %>
 <% end %>

@@ -65,4 +65,20 @@ RSpec.feature "タスク管理機能", type: :feature do
     expect(page).not_to have_content '222'
     expect(page).not_to have_content '333'
   end
+
+  scenario "ユーザーのテスト" do
+    User.create!(name: 'aaa', email: 'aaa@gmail.com', password: '61346134', password_confirmation: '61346134')
+    User.create!(name: 'aaa', email: 'aaa@gmail.com', password: '61346134', password_confirmation: '61346134')
+    visit sessions_new
+    fill_in 'session_email', with: 'aaa@gmail.com'
+    fill_in 'session_password', with: '61346134'
+  end
+
+
+
+
+
+
+
+
 end
