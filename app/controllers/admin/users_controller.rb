@@ -9,17 +9,18 @@ class Admin::UsersController < ApplicationController
   end
 
   def new
-    if session[:user_id] = false
-    else
+    # if session[:user_id] = false
+    # else
       @user =User.new
-    end
+    
   end
 
   def create
     @user = User.new(user_params)
+
     if @user.save
-      log_in(@user)
-      redirect_to admin_user_path(@user.id)
+
+      redirect_to admin_users_path
     else
       render 'new'
     end
@@ -44,8 +45,8 @@ class Admin::UsersController < ApplicationController
 
 
   def destroy
-    @user.destroy
-    redirect_to admin_users_path, notice: "削除しました。"
+      @user.destroy
+      redirect_to admin_users_path, notice: "削除しました。"
   end
 
 

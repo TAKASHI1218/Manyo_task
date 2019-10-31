@@ -10,6 +10,6 @@ class User < ApplicationRecord
 
   before_destroy do
    throw :abort if User.where(admin: true).count < 2 && self.admin?
-    flash.now[:failed] = '削除できません。'
+
   end
 end
