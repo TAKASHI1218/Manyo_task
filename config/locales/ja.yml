@@ -218,7 +218,7 @@ ja:
     show_detail: 内容確認
     edit: 編集
     delete: 削除
-    create_new: 新規
+    create_new: タスクを新規作成する
     sort_by_cut_off_date: 終了期限でソートする
     sort_by_priority: 優先順でソートする
     register: 登録する
