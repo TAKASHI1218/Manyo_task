@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def new
-    if session[:user_id] = false
+    if session[:user_id]
+      redirect_to tasks_path
 
     else
       @user =User.new

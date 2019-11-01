@@ -5,14 +5,14 @@ class Admin::UsersController < ApplicationController
   def index
     @users = User.all
     @task = Task.all
-    # @user=User.find(params[:id])
+    @user=User.find(params[:id])
   end
 
   def new
     # if session[:user_id] = false
     # else
       @user =User.new
-    
+
   end
 
   def create
@@ -65,6 +65,11 @@ class Admin::UsersController < ApplicationController
 
 
   def if_not_admin
-    redirect_to new_user_path unless current_user.admin?
+
+    redirect_to new_session_path unless current_user.admin?
   end
+
+
+
+
 end

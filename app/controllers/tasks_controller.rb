@@ -83,7 +83,7 @@ class TasksController < ApplicationController
 
   def refuse_go_to_task
     if current_user == nil
-      redirect_to new_user_path
+      redirect_to new_session_path
     else
     end
   end
