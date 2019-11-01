@@ -36,7 +36,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      binding.pry
+      # binding.pry
 
        redirect_to admin_users_path, notice: "更新しました。"
     else
@@ -46,10 +46,9 @@ class Admin::UsersController < ApplicationController
 
 
   def destroy
-    if User.where(admin: true).count < 1
-      @user.destroy
+    if @user.destroy    
       redirect_to admin_users_path, notice: "削除しました。"
-    else
+    elsif User.where(admin: true).count == 1
       redirect_to admin_users_path, notice: "できません。"
     end
   end

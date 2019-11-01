@@ -29,7 +29,7 @@
   <%= f.password_field :password_confirmation %>
 
 
-  <%= f.check_box :admin ,{}, true, false %>
+  <%= f.check_box :admin ,{}, "true", "false" %>
   <%= f.label :admin, "管理者権限" %>
 
   <%= f.submit t('view.edit_user') %>
