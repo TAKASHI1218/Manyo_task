@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
   def index
     @users = User.all
     @task = Task.all
-    @user=User.find(params[:id])
+    # @user=User.find(params[:id])
   end
 
   def new
@@ -36,6 +36,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      binding.pry
 
        redirect_to admin_users_path, notice: "更新しました。"
     else
@@ -45,8 +46,12 @@ class Admin::UsersController < ApplicationController
 
 
   def destroy
+    if User.where(admin: true).count < 1
       @user.destroy
       redirect_to admin_users_path, notice: "削除しました。"
+    else
+      redirect_to admin_users_path, notice: "できません。"
+    end
   end
 
 
@@ -56,7 +61,7 @@ class Admin::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
   end
 
   def set_user
@@ -64,12 +69,21 @@ class Admin::UsersController < ApplicationController
   end
 
 
+#   def if_not_admin
+#     if current_user == nil
+#       redirect_to new_session
+#     elsif
+# redirect_to new_session_path unless current_user.admin?
+# end
+#   end
+
   def if_not_admin
-
-    redirect_to new_session_path unless current_user.admin?
+    if current_user == nil
+      redirect_to new_session_path
+    elsif !current_user.admin?
+      redirect_to tasks_path
+    end
   end
-
-
 
 
 end

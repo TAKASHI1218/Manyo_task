@@ -10,7 +10,9 @@
         <th><%= t('view.user_name') %></th>
         <th><%= t('view.user_email') %></th>
         <th><%= t('view.number_of_task') %></th>
-        <th><%= t('view.function') %></th>
+        <th><%= t('view.boolean') %></th>
+        <th>Function</th>
+
       </tr>
     </thead>
 
@@ -20,6 +22,12 @@
       <td><%= user.name %></td>
       <td><%= user.email %></td>
       <td><%= user.tasks.count  %></td>
+      <td>
+      <% if user.admin %>
+        ☆
+      <% else %>
+
+      <% end %></td>
 
 
 
