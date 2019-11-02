@@ -13,14 +13,39 @@
   <body>
     <header>
        <ul>
-         <h2>万葉課題</h2>
+
        </ul>
      </header>
 
-     <br> 
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+
+    <% if logged_in? %>
+     <%= link_to "Profile", user_path(current_user.id) %>
+     <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+     <% if current_user.admin? %>
+        <%= link_to "Admin", admin_users_path %>
+      <% end %>
+
+   <% else %>
+     <%= link_to "Sign up", new_user_path %>
+     <%= link_to "Login", new_session_path %>
+   <% end %>
+
+
+
+
+
+
 
 
     <%= yield %>
+
+
+     <br>
+
+
 
     <footer>
     <p>運営会社　スケジュール株式会社</p>

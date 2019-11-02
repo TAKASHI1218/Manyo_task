@@ -1,0 +1,35 @@
+<h1><%= @user.name %>のページ</h1>
+
+<p>メールアドレス: <%= @user.email %></p>
+
+<table border="3" cellpadding="25" class = task_list>
+  <thead>
+    <tr bgcolor="#ccccc">
+      <th><%= t('view.task') %></th>
+      <th><%= t('view.content') %></th>
+      <th><%= t('view.status') %></th>
+      <th><%= t('view.label') %></th>
+      <th><%= t('view.priority') %></th>
+      <th><%= t('view.cut_off_date') %></th>
+      <th>ユーザー名</th>
+    </tr>
+  </thead>
+
+  <% @tasks.each do |task| %>
+  <% if @user.id == task.user.id %>
+
+  <tr class = task_list>
+    <td><%= task.name %></td>
+    <td><%= task.content %></td>
+    <td><%= task.status %></td>
+    <td><%= task.label %></td>
+    <td><%= task.priority %></td>
+    <td><%= task.cut_off_date %></td>
+    <td><%= task.user.name %></td>
+    <% else %>
+    <% end %>
+
+    <% end %>
+
+
+  <%= link_to t('view.index_for_user'), admin_users_path %>

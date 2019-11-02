@@ -32,12 +32,14 @@
       <th><%= t('view.label') %></th>
       <th><%= t('view.priority') %></th>
       <th><%= t('view.cut_off_date') %></th>
+      <th>ユーザー</th>
       <th>Function</th>
     </tr>
   </thead>
 
 
   <% @tasks.each do |task| %>
+    <% if current_user.id == task.user.id %>
   <tr class = task_list>
     <td><%= task.name %></td>
     <td><%= task.content %></td>
@@ -45,15 +47,21 @@
     <td><%= task.label %></td>
     <td><%= task.priority %></td>
     <td><%= task.cut_off_date %></td>
+    <td><%= task.user.name %></td>
+
+
 
 
     <td>
     <%= link_to t('view.show_detail'), task_path(task.id) %>
     <%= link_to t('view.edit'), edit_task_path(task.id) %>
     <%= link_to t('view.delete'), task_path(task.id), method: :delete %>
+    <% else %>
+    <% end %>
+  <% end %>
     </td>
   </tr>
-  <% end %>
+
 </table>
 
 <br>

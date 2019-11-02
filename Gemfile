@@ -11,6 +11,7 @@ gem 'pry-rails'
 
 gem 'kaminari'
 #
+gem 'warden'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

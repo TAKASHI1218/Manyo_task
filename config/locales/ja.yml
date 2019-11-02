@@ -218,10 +218,20 @@ ja:
     show_detail: 内容確認
     edit: 編集
     delete: 削除
-    create_new: 新規
+    create_new: タスクを新規作成する
     sort_by_cut_off_date: 終了期限でソートする
     sort_by_priority: 優先順でソートする
     register: 登録する
     back: 戻る
     cannot_show_due_to_below: 以下のエラーにより登録できません。
     search: 検索
+    user_id: ユーザーid
+    user_name: ユーザー名
+    user_email: ユーザーメール
+    number_of_task: タスク数
+    function: ファンクション
+    index_for_admin: 管理画面のユーザー一覧画面
+    index_for_user: ユーザー一覧
+    edit_user: ユーザー編集
+    create_account: アカウント作成
+    create_new_user: 新規ユーザー作成
