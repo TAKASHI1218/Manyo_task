@@ -7,12 +7,18 @@
 <p><%= @task.content %></p>
 <strong><%= t('view.status') %></strong>
 <p><%= @task.status %></p>
-<strong><%= t('view.label') %></strong>
-<p><%= @task.label %></p>
 <strong><%= t('view.priority') %></strong>
 <p><%= @task.priority %></p>
 <strong><%= t('view.cut_off_date') %></strong>
 <p><%= @task.cut_off_date %></p>
 
+<strong><%= t('view.label') %></strong>
+<br>
+<% @task.labels.each do |label| %>
+<%= label.name %>
+<% end %>
 
+<br>
+<br>
+<br>
 <%= link_to t('view.back'), tasks_path %>

@@ -1,4 +1,4 @@
- require 'rails_helper'
+require 'rails_helper'
 
 
 RSpec.feature "タスク管理機能", type: :feature do

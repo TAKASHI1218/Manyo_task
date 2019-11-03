@@ -1,0 +1,19 @@
+<%= form_with(model: @label, local:true) do |form| %>
+<% if @label.errors.any? %>
+<%= t('view.cannot_show_due_to_below') %>
+
+<ul>
+  <% @label.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= t('view.label') %>
+<%= form.text_field :name %>
+
+<button id=create_new>
+<%= form.submit t('view.register')%></button>
+<% end %>
+
+  <%= link_to t('view.back'), labels_path %>

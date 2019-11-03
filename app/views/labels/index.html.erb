@@ -1,0 +1,31 @@
+<h3 class="label label-info"><%= t('view.label_index') %><h3>
+<table border="3" cellpadding="25" class = label_list>
+  <thead>
+    <tr bgcolor="#ccccc">
+      <th><%= t('view.label') %></th>
+      <th>Function</th>
+    </tr>
+  </thead>
+
+
+  <% @labels.each do |label| %>
+  <tr class = label_list>
+    <td><%= label.name %></td>
+
+    <td>
+    <%= link_to t('view.show_detail'), label_path(label.id) %>
+    <%= link_to t('view.edit'), edit_label_path(label.id) %>
+    <%= link_to t('view.delete'), label_path(label.id), method: :delete %>
+
+    <% end %>
+
+    </td>
+  </tr>
+
+</table>
+
+<br>
+
+  <button type="button" div class ="create_new_label label-info">
+  <%= link_to t('view.create_new_label'), new_label_path %>
+  </button>
