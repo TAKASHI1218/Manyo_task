@@ -16,8 +16,8 @@ User.create!(name:  "管理者3",
 
 
 
-Label.create!(label: "ラベル1")
-Label.create!(label: "ラベル2")
-Label.create!(label: "ラベル3")
-Label.create!(label: "ラベル4")
-Label.create!(label: "ラベル5")
+Label.create!(name: "ラベル1")
+Label.create!(name: "ラベル2")
+Label.create!(name: "ラベル3")
+Label.create!(name: "ラベル4")
+Label.create!(name: "ラベル5")
