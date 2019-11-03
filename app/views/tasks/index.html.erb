@@ -4,7 +4,7 @@
   <% if flash[:notice] %>
     <h5><%= flash[:notice] %></h5>
   <% end %>
-<h5>
+<h5> 
 
  <%= form_tag(tasks_path, method: "get") do %>
 <id = task_search>
@@ -16,6 +16,11 @@
 
 
  <%= submit_tag t('view.search') %>
+ <% end %>
+
+ <%= form_with url: tasks_path, method: :get, local: true do |form| %>
+   <%= form.select("label_id", Label.pluck(:name, :id), {include_blank: true}) %>
+   <%= form.submit 'Label_Search', name: nil %>
  <% end %>
 </h5>
 
@@ -29,10 +34,11 @@
       <th><%= t('view.task') %></th>
       <th><%= t('view.content') %></th>
       <th><%= t('view.status') %></th>
-      <th><%= t('view.label') %></th>
       <th><%= t('view.priority') %></th>
       <th><%= t('view.cut_off_date') %></th>
-      <th>ユーザー</th>
+      <th><%= t('view.user_name') %></th>
+      <th><%= t('view.label') %></th>
+
       <th>Function</th>
     </tr>
   </thead>
@@ -44,10 +50,17 @@
     <td><%= task.name %></td>
     <td><%= task.content %></td>
     <td><%= task.status %></td>
-    <td><%= task.label %></td>
     <td><%= task.priority %></td>
     <td><%= task.cut_off_date %></td>
     <td><%= task.user.name %></td>
+
+    <td>
+      <% task.labels.each do |label| %>
+      <%= label.name %>
+      <% end %>
+
+
+      </td>
 
 
 
@@ -56,9 +69,11 @@
     <%= link_to t('view.show_detail'), task_path(task.id) %>
     <%= link_to t('view.edit'), edit_task_path(task.id) %>
     <%= link_to t('view.delete'), task_path(task.id), method: :delete %>
-    <% else %>
+
     <% end %>
   <% end %>
+
+
     </td>
   </tr>
 
@@ -79,6 +94,8 @@
   <button type="button" class ="sort_prioriy label-warning">
   <%= link_to t('view.sort_by_priority'), tasks_path(sort_prioriy: "true") %>
   </button>
+
+
 
 
   <%= paginate @tasks %>

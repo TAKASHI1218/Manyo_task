@@ -6,8 +6,8 @@ class TasksController < ApplicationController
 
   PER = 8
   def index
-
     @tasks = Task.all.order("created_at DESC").page(params[:page]).per(PER)
+    @tasks = @tasks.joins(:labels).where(labels: { id: params[:label_id]}) if params[:label_id].present?
 
     if params[:sort_by_cut_off_date]
       @tasks=Task.all.order("cut_off_date ASC").page(params[:page]).per(PER)
@@ -37,6 +37,7 @@ class TasksController < ApplicationController
 
 
   def show
+      # @task = @task.joins(:labels).where(labels: { id: params[:label_id]}) if params[:label_id].present?
   end
 
   def create
@@ -55,6 +56,7 @@ class TasksController < ApplicationController
   end
 
   def edit
+
   end
 
   def destroy
@@ -74,11 +76,12 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :content, :status, :label, :priority, :cut_off_date, :user_id)
+    params.require(:task).permit(:name, :content, :status, :label, :priority, :cut_off_date, :user_id, { label_ids: []})
   end
 
   def set_task
     @task = Task.find(params[:id])
+
   end
 
   def refuse_go_to_task

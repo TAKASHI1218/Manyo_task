@@ -18,17 +18,22 @@
 <%= t('view.status') %>
 <%= form.select :status, Task.statuses.keys.to_a, {} %>
 
-<%= t('view.label') %>
-<%= form.text_field :label %>
-
 <%= t('view.priority') %>
 <%= form.select :priority, Task.priorities.keys.to_a, {} %>
 
 <%= t('view.cut_off_date') %>
 <%= form.date_select :cut_off_date %>
-
+<br>
+<% Label.all.each do |label| %>
+<%= label.name %>
+<%= form.check_box :label_ids, { multiple: true, checked: label[:checked],
+  disabled: label[:disabled], include_hidden: false }, label[:id] %>
+  <% end %>
+<br>
+<br>
 <button id=create_new>
 <%= form.submit t('view.register')%></button>
 <% end %>
-
-  <%= link_to t('view.back'), tasks_path %>
+<br>
+<button>
+<%= link_to t('view.back'), tasks_path %></button>
